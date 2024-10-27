@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+
+{% block css_styles %}
+    <link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock %}
+
+
+{% block content %}
+    <header id="main-navigation">
+        <h1><a href="">Denis Blog</a></h1>
+        <nav>
+            <a href="{% url "posts_page" %}">All posts</a>
+        </nav>
+    </header>
+
+    <section id="welcome">
+
+        <header>
+            <img src="{% static "blog/images/denis.jpg" %}" alt="Denis - The author of This Blog">
+            <div><h2>DENIS BLOG</h2>
+            <p>Hi, I am Denis and i love to Blog about tech</p>
+            </div>
+        </header>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+    <ul>
+        {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+    </section>
+
+    <section id="about">
+        <h2>What i Do</h2>
+        <p>I love programing, and learn something new</p>
+        <p>My goal is to keep on growing as a developer</p>
+    </section>
+
+{% endblock %} }

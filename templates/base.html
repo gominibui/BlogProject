@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    {% block css_styles %} {% endblock %}
+    <link rel="stylesheet" href="{% static "app.css" %}">
+</head>
+
+<body>
+    <header id="main-navigation">
+        <h1><a href="{% url "starting_page" %}">Denis Blog</a></h1>
+        <nav>
+            <a href="{% url "posts_page" %}">All posts</a>
+        </nav>
+    </header>
+    
+    {% block content %}
+    {% endblock %}
+    <script src=""></script>
+</body>
+
+</html>
